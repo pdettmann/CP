@@ -1,0 +1,19 @@
+# action.yml
+name: 'Profiler-Action'
+description: 'Profiles personal Python projects"
+
+inputs:
+  file-path:  # id of input
+    description: 'Enter the path to your main file'
+    required: true
+    default: './main.py'
+
+outputs:
+  profile: # id of output
+    description: 'Profile of your application'
+
+runs:
+  using: "composite"
+  steps:
+    - run: ./entrypoint.sh ${{ inputs.file-path }}
+      shell: bash
