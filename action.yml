@@ -1,6 +1,6 @@
 # action.yml
 name: 'Profiler-Action'
-description: 'Profiles personal Python projects"
+description: 'Profiles personal Python projects'
 
 inputs:
   file-path:  # id of input
