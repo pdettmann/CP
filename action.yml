@@ -15,5 +15,5 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - run: python3 -m cProfile ${{ inputs.file-path }}"
+    - run: python3 -m cProfile ${{ inputs.file-path }}
       shell: bash
