@@ -15,5 +15,5 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - run: ./entrypoint.sh ${{ inputs.file-path }}
+    - run: entrypoint.sh ${{ inputs.file-path }}
       shell: bash
