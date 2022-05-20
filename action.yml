@@ -15,5 +15,5 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - run: entrypoint.sh
+    - run: echo "Hello ${{ inputs.file-path }}"
       shell: bash
