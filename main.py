@@ -1,22 +1,19 @@
 import http.client
 import json
 import os
+import subprocess
 
 ENV = os.environ
 
 entry_file = "/github/workspace/" + ENV["INPUT_ENTRY_FILE"]
 
-os.popen('python3 -m cProfile {} > /action/profile_data'.format(entry_file))
-print(os.getcwdb())
+profile_cmd = subprocess.Popen(['python3', '-m', 'cProfile', entry_file], stdout=subprocess.PIPE)
+profile_data = profile_cmd.communicate()
+profile_cmd.wait()
+profile_data = profile_data[0].decode('utf-8')
+lines = profile_data.split('\n')
 
-lines = []
-with open('/action/profile_data', encoding='utf8') as f:
-    all = f.read()
-
-print(all)
-
-with open('./profile_data', encoding='utf8') as f:
-    lines = f.readlines()
+print(profile_data)
 
 matches = [match for match in lines if "function calls in" in match]
 words = matches[0].split()
