@@ -1,22 +1,15 @@
 # action.yml
 name: 'ammonite-profiler'
 description: 'Profiles personal projects'
-
 inputs:
-  file-path:  # id of input
-    description: 'Enter the path to your main file'
+  api_key:
+    description: 'Project API key'
+    required: false
+  entry_file:
+    description: 'Entry file for Python app'
     required: true
-    default: './main.py'
-  api-key:
-    description: 'Enter your ammonite-profiler apiKey'
-    required: true
-
-outputs:
-  profile: # id of output
-    description: 'Profile of your application'
-
 runs:
-  using: "composite"
-  steps:
-    - run:
-      shell: python
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - -e API_KEY=${{ inputs.api_key }} -e ENTRY_FILE=${{ inputs.entry_file }}
