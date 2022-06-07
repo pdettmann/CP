@@ -1,12 +1,15 @@
 # action.yml
-name: 'Profiler-Action'
-description: 'Profiles personal Python projects'
+name: 'ammonite-profiler'
+description: 'Profiles personal projects'
 
 inputs:
   file-path:  # id of input
     description: 'Enter the path to your main file'
     required: true
     default: './main.py'
+  api-key:
+    description: 'Enter your ammonite-profiler apiKey'
+    required: true
 
 outputs:
   profile: # id of output
@@ -15,5 +18,5 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - run: python3 -m cProfile ${{ inputs.file-path }}
-      shell: bash
+    - run:
+      shell: python
