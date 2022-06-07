@@ -9,7 +9,7 @@ entry_file = "/github/workspace/" + ENV["INPUT_ENTRY_FILE"]
 os.popen('python3 -m cProfile {} > profile_data'.format(entry_file))
 
 lines = []
-with open('./profile_data', encoding='utf8') as f:
+with open('action/profile_data', encoding='utf8') as f:
     all = f.read()
 
 print(all)
