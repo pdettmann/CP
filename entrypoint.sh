@@ -1,3 +1,3 @@
 #!/bin/sh -l
 
-python3 main.py
+python3 ./main.py
