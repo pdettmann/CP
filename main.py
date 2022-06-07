@@ -4,7 +4,7 @@ import os
 
 ENV = os.environ
 
-entry_file = "/github/workspace/" + ENV["ENTRY_FILE"]
+entry_file = "/github/workspace/" + ENV["INPUT_ENTRY_FILE"]
 
 os.popen('python3 -m cProfile {} > profile_data'.format(entry_file))
 
@@ -24,7 +24,7 @@ total_time = words[4]
 
 # Post profiler data to API
 api_url = '5q2hk4toq1.execute-api.us-west-2.amazonaws.com'
-api_key = ENV.get('API_KEY')
+api_key = ENV.get('INPUT_API_KEY')
 
 if api_key != None:
     connection = http.client.HTTPSConnection(api_url)

@@ -11,5 +11,3 @@ inputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args:
-    - -e API_KEY=${{ inputs.api_key }} -e ENTRY_FILE=${{ inputs.entry_file }}
