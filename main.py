@@ -5,9 +5,14 @@ import subprocess
 
 ENV = os.environ
 
-entry_file = "/github/workspace/" + ENV["INPUT_ENTRY_FILE"]
+entry_file = ENV.get("INPUT_ENTRY_FILE")
+if entry_file == None:
+    print("missing entry file")
+    raise SystemExit
 
-profile_cmd = subprocess.Popen(['python3', '-m', 'cProfile', entry_file], stdout=subprocess.PIPE)
+entry_file_path = "/github/workspace/" + entry_file
+
+profile_cmd = subprocess.Popen(['python3', '-m', 'cProfile', entry_file_path], stdout=subprocess.PIPE)
 profile_data = profile_cmd.communicate()
 profile_cmd.wait()
 profile_data = profile_data[0].decode('utf-8')
@@ -24,7 +29,10 @@ total_time = words[4]
 api_url = '5q2hk4toq1.execute-api.us-west-2.amazonaws.com'
 api_key = ENV.get('INPUT_API_KEY')
 
-if api_key != None:
+if api_key == None:
+    print("No api key so data was not sent")
+    raise SystemExit
+else:
     connection = http.client.HTTPSConnection(api_url)
 
     headers = {'Content-type': 'application/json', 'Authorization': api_key}
