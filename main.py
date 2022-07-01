@@ -26,7 +26,7 @@ function_calls = words[0]
 total_time = words[4]
 
 # Post profiler data to API
-api_url = 'https://api.ammonite-profiler.xyz'
+api_url = 'api.ammonite-profiler.xyz'
 api_key = ENV.get('INPUT_API_KEY')
 
 if api_key == None:
