@@ -1,3 +1,3 @@
 #!/bin/sh -l
 
-python3 /action/main.py
+python3 /action/src/main.py
