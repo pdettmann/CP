@@ -8,7 +8,7 @@ Ammonite-profiler is a GitHub action to benchmark your Python code.
 
 ## Inputs
 * `entry-file` **(required)** is the file that you use to run your Python project with the `python3` command.
-* `api_key` is the api_key for your project registered on the [ammonite profiler website]. Please add this in your repositories GitHub secrets.
+* `api_key` is the API key for your project registered on the [ammonite profiler website]. Please add this in your repository GitHub secrets.
 
 ## Example Usage
 
