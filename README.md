@@ -31,5 +31,5 @@ on: [push]
 
 You can check out an example repository using this action [here].
 
-[ammonite profiler website]: <ammonite-profiler.xyz>
+[ammonite profiler website]: <https://ammonite-profiler.xyz>
 [here]: <https://github.com/pdettmann/python_test_app>
