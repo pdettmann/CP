@@ -1,0 +1,8 @@
+.github/
+.git/
+tests/
+
+.gitignore
+action.yml
+Dockerfile
+README.md
